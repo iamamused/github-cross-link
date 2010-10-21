@@ -46,7 +46,7 @@
         node.wrapInner(function() {
             return $('<a/>').attr({
                 href : libraryBase + node.text().replace(/_/ig,'/') + '.' + extension,
-                title : 'View ' + extensionParts[extensionParts.length - 2] + '.' + extension + ' in ' + project
+                title : 'View source in ' + project
             }).css({
                 color: 'inherit'
             });
