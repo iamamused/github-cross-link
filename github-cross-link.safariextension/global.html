@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script type="text/javascript">
+    safari.application.addEventListener( "message", function( e ) {
+      if( e.name === "getSettings" ) {
+        e.target.page.dispatchMessage( "setSettings", {
+          patterns: safari.extension.settings.getItem( "patterns" )
+        } );
+      }
+    }, false );
+  </script>
+</head>
+<body></body>
+</html>
