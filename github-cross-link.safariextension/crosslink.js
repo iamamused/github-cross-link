@@ -32,7 +32,7 @@
     for ( var i=0; i<patterns.length; i++ ) {
         pattern = trim(patterns[i],'/');
         parts = pattern.split('/');
-        if ( parts[0] === project ) {
+        if ( parts[1] === project ) {
             found = true;
             break;
         }

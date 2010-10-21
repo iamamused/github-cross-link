@@ -1,6 +1,8 @@
-##What is GitHub Cross Link?
+##What is GitHub Cross-link?
 
 While browsing the github repositories I thought "Wouldn't it be neat if the classes were clickable?" Well, now they are.
+
+<img src="http://github.com/iamamused/github-cross-link/raw/master/test/screenshot.jpg" />
 
 At the moment, the extension only works for the PEAR / Zend Framework file structure where a class name uses an _ to represent a directory. For example:
 
@@ -18,7 +20,9 @@ I'll add more possibilities as necessary.
 
 2. If Safari doesn't prompt you to install, double click it.
 
-3. Once installed go to Safari > Preferences > Extensions > github cross link and enter the include patterns for your library. 
+3. To check if everyting is working, [go here](http://github.com/iamamused/github-cross-link/blob/master/test/Example.php) and see if you can click the Example_Class_Name.
+
+4. If that worked, go to Safari > Preferences > Extensions > GitHub Cross Link and enter the include patterns for your libraries. 
 
 ### Include Patterns
 
