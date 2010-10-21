@@ -40,12 +40,17 @@
     
     if (!found) return;
     
-    var libraryBase = base + '/' + user + '/' + parts[0] + '/' + type + '/' + version + '/' + parts[2] + '/';
+    var libraryBase = base + '/' + parts[0] + '/' + type + '/' + version + '/' + parts[2] + '/';
     
     var classes = jQuery('.highlight .nx').each(function(i,e){
         var node = $(e);
         node.wrapInner(function() {
-            return $('<a href="' + libraryBase + node.text().replace(/_/ig,'/') + '.' + extension + '" />').css('color','inherit !important');
+            return $('<a/>').attr({
+                href : libraryBase + node.text().replace(/_/ig,'/') + '.' + extension,
+                title : 'View ' + extensionParts[extensionParts.length - 2] + '.' + extension + ' in ' + project
+            }).css({
+                color: 'inherit'
+            });
         });
     });
     

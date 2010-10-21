@@ -28,11 +28,11 @@ For example, if you have a github project called `MyProject` your `My_Class_Name
 
 for the Include pattern enter: 
 
-    /MyProject/*/library
+    /myusername/MyProject/*/library
   
 The `*` will be replaced with blob/master or the appropriate version if you're looking at a branch. If your library is in a sub directory such as /sub/library then enter:
 
-    /MyProject/*/sub/library
+    /myusername/MyProject/*/sub/library
 
 and so on.
 

@@ -4,7 +4,7 @@
 <array>
 	<dict>
 		<key>DefaultValue</key>
-		<string>/project/*/library</string>
+		<string>/iamamused/github-cross-link/*/php-library</string>
 		<key>Key</key>
 		<string>patterns</string>
 		<key>Secure</key>

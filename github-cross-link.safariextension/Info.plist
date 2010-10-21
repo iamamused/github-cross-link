@@ -5,7 +5,7 @@
 	<key>Author</key>
 	<string>Jeffrey Sambells</string>
 	<key>CFBundleDisplayName</key>
-	<string>github cross-link</string>
+	<string>GitHub Cross-link</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.jeffreysambells.github-cross-link</string>
 	<key>CFBundleInfoDictionaryVersion</key>
