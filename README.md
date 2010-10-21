@@ -1,4 +1,4 @@
-##What is github croll link?
+##What is GitHub Cross Link?
 
 While browsing the github repositories I thought "Wouldn't it be neat if the classes were clickable?" Well, now they are.
 
@@ -14,7 +14,7 @@ I'll add more possibilities as necessary.
 
 ##Installation
 
-1. [Download the packaged extenstion](http://github.com/downloads/iamamused/github-cross-link/github-cross-link.safariextz/qr_code)
+1. [Download the packaged extension](http://github.com/downloads/iamamused/github-cross-link/github-cross-link.safariextz/qr_code)
 
 2. If Safari doesn't prompt you to install, double click it.
 
