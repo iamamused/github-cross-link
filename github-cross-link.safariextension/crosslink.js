@@ -40,8 +40,7 @@
     
     if (!found) return;
     
-    var libraryBase = base + '/' + parts[0] + '/' + type + '/' + version + '/' + parts[2] + '/';
-    
+    var libraryBase = base + '/' + pattern.replace( '*', type + '/' + version ) + '/';
     var classes = jQuery('.highlight .nx').each(function(i,e){
         var node = $(e);
         node.wrapInner(function() {
