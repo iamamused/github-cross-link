@@ -5,9 +5,9 @@
 	<key>Author</key>
 	<string>Jeffrey Sambells</string>
 	<key>CFBundleDisplayName</key>
-	<string>github cross link</string>
+	<string>github cross-link</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.jeffreysambells.github-crosslink</string>
+	<string>com.jeffreysambells.github-cross-link</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
@@ -48,6 +48,6 @@
 		</dict>
 	</dict>
 	<key>Website</key>
-	<string>http://jeffreysambells.com/projects/github-crosslink</string>
+	<string>http://jeffreysambells.com/projects/github-cross-link</string>
 </dict>
 </plist>
