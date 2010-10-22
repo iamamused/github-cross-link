@@ -5,8 +5,8 @@
 
 // Saves options to localStorage.
 function save_options() {
-  var select = document.getElementById("patterns");
-  var patterns = select.children[select.selectedIndex].value;
+  var textarea = document.getElementById("patterns");
+  var patterns = textarea.value;
   localStorage["patterns"] = patterns;
 
   // Update status to let user know options were saved.
@@ -21,6 +21,11 @@ function save_options() {
 function restore_options() {
   var patterns = localStorage["patterns"];
   if (!patterns) {
+    patterns = '/iamamused/github-cross-link/*/test/php-library/';
+  }
+  
+  console.log(patterns);
+  if (!patterns) {
     return;
   }
   document.getElementById("patterns").value = patterns;  
@@ -29,9 +34,9 @@ function restore_options() {
 </script>
 
 <body onload="restore_options()">
-
+<div id="status"></div>
 Include Patterns:<br/>
-<textarea></textarea>
+<textarea id="patterns"></textarea>
 <br>
 <button onclick="save_options()">Save</button>
 </body>

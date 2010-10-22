@@ -14,11 +14,9 @@
         return str.replace(new RegExp("[" + chars + "]+$", "g"), "");
     }
 
-    $(function() {
+    var settings;
+    var init = function() {
     // The guts.
-    if (!localStorage["patterns"]) {
-      localStorage["patterns"] = '/iamamused/github-cross-link/*/test/php-library/';
-    };
     
     var url = window.location.href.split('/');
     var base = url[0] + '/' + url[1] + '/' + url[2];
@@ -29,7 +27,7 @@
     var extensionParts = url[url.length -1].split('.');
     var extension = extensionParts[extensionParts.length -1];
     
-    var patterns = localStorage["patterns"].split(',');
+    var patterns = settings.patterns.split(',');
     var found = false, pattern, parts;
     for ( var i=0; i<patterns.length; i++ ) {
         pattern = trim(patterns[i],'/');
@@ -55,8 +53,16 @@
         });
     });
     
-  });
+  };
 
+
+
+    chrome.extension.sendRequest({name: "getPreferences"},
+     function(response)
+     {
+        settings = response;
+        init();
+     });
   
   // Done.
   

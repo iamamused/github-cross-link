@@ -2,6 +2,19 @@
 <html lang="en">
 <head>
   <script type="text/javascript">
+  chrome.extension.onRequest.addListener(
+       function(request, sender, sendResponse) {
+          switch (request.name) {
+             case "getPreferences":
+                // request from the content script to get the preferences.
+                sendResponse(
+                      {
+                         patterns : localStorage["patterns"],
+                      });
+                break;
+          }
+       }
+  );
   </script>
 </head>
 <body></body>
