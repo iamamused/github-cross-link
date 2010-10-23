@@ -1,73 +1,102 @@
+
+// Namespace to wrap our object and jquery to avoid conflicts.
 ( function() {
 
-    function trim(str, chars) {
-        return ltrim(rtrim(str, chars), chars);
-    }
+if (window.GitHubCrossLink) return;
+
+window.GitHubCrossLink = {
+
+    settings        : {},
+    url             : '',
+    base            : '',
+    user            : '',
+    project         : '',
+    type            : '',
+    version         : '',
+    extensionParts  : '',
+    extension       : '',
+
+    trim: function(str, chars) {
+        return this.ltrim(this.rtrim(str, chars), chars);
+    },
      
-    function ltrim(str, chars) {
+    ltrim: function(str, chars) {
         chars = chars || "\\s";
         return str.replace(new RegExp("^[" + chars + "]+", "g"), "");
-    }
+    },
      
-    function rtrim(str, chars) {
+    rtrim: function(str, chars) {
         chars = chars || "\\s";
         return str.replace(new RegExp("[" + chars + "]+$", "g"), "");
-    }
+    },
 
-  var settings;
-  var init = function() {
-    // The guts.
+    init: function( settings ) {
     
-    var url = window.location.href.split('/');
-    var base = url[0] + '/' + url[1] + '/' + url[2];
-    var user    = url[3];
-    var project = url[4];
-    var type    = url[5];
-    var version = url[6];
-    var extensionParts = url[url.length -1].split('.');
-    var extension = extensionParts[extensionParts.length -1];
-    
-    var patterns = settings.patterns.split(',');
-    var found = false, pattern, parts;
-    for ( var i=0; i<patterns.length; i++ ) {
-        pattern = trim(patterns[i],'/');
-        parts = pattern.split('/');
-        if ( parts[1] === project ) {
-            found = true;
-            break;
+        this.settings = settings;
+        
+        this.url            = window.location.href.split('/');
+        this.base           = this.url[0] 
+                              + '/' 
+                              + this.url[1] 
+                              + '/' 
+                              + this.url[2];
+                              
+        this.user           = this.url[3];
+        this.project        = this.url[4];
+        this.type           = this.url[5];
+        this.version        = this.url[6];
+        this.extensionParts = this.url[this.url.length -1].split('.');
+        
+        
+        this.extension      = this.extensionParts[this.extensionParts.length -1];
+
+        console.log(this.extension);
+
+        
+        if($('.data.type-php').length > 0) {
+            this.initPHP();
         }
-    }
+        
+        if($('.data.type-java').length > 0) {
+            this.initJAVA();
+        }
+    },
     
-    if (!found) return;
+    initPHP: function() {
+
+        var patterns = this.settings.patterns.split(',');
     
-    var libraryBase = base + '/' + pattern.replace( '*', type + '/' + version ) + '/';
-    var classes = jQuery('.highlight .nx').each(function(i,e){
-        var node = $(e);
-        node.wrapInner(function() {
-            return $('<a/>').attr({
-                href : libraryBase + node.text().replace(/_/ig,'/') + '.' + extension,
-                title : 'View source in ' + project
-            }).css({
-                color: 'inherit'
+        var found = false, pattern, parts;
+        for ( var i=0; i<patterns.length; i++ ) {
+            pattern = this.trim(this.trim(patterns[i]),'/');
+            parts = pattern.split('/');
+            if ( parts[1] === this.project ) {
+                found = true;
+                break;
+            }
+        }
+
+        if (!found) return;
+        
+        var libraryBase = this.base 
+                          + '/' 
+                          + pattern.replace( '*', this.type + '/' + this.version ) 
+                          + '/';
+                          
+        var classes = jQuery('.highlight .nx').each(function(i,e){
+            var node = $(e);
+            node.wrapInner(function() {
+                return $('<a/>').attr({
+                    href : libraryBase + node.text().replace(/_/ig,'/') + '.' + GitHubCrossLink.extension,
+                    title : 'View source in ' + this.project
+                }).css({
+                    color: 'inherit'
+                });
             });
         });
-    });
-    
-    
-  };
-
-  // Listens for an incoming setSettings message.
-  safari.self.addEventListener( "message", function( e ) {
-    if( e.name === "setSettings" ) {
-      settings = e.message;
-      init();
     }
-  }, false );
-
-  // Asks global.html for settings then runs init.
-  safari.self.tab.dispatchMessage( "getSettings" );
-  
-  // Done.
+    
+};
 
 /*!
  * jQuery JavaScript Library v1.4.3
@@ -235,5 +264,6 @@ e):f.css(e)}};c.fn.extend({position:function(){if(!this[0])return null;var a=thi
 c.css(a,"position")==="static";)a=a.offsetParent;return a})}});c.each(["Left","Top"],function(a,b){var d="scroll"+b;c.fn[d]=function(e){var f=this[0],h;if(!f)return null;if(e!==A)return this.each(function(){if(h=ea(this))h.scrollTo(!a?e:c(h).scrollLeft(),a?e:c(h).scrollTop());else this[d]=e});else return(h=ea(f))?"pageXOffset"in h?h[a?"pageYOffset":"pageXOffset"]:c.support.boxModel&&h.document.documentElement[d]||h.document.body[d]:f[d]}});c.each(["Height","Width"],function(a,b){var d=b.toLowerCase();
 c.fn["inner"+b]=function(){return this[0]?parseFloat(c.css(this[0],d,"padding")):null};c.fn["outer"+b]=function(e){return this[0]?parseFloat(c.css(this[0],d,e?"margin":"border")):null};c.fn[d]=function(e){var f=this[0];if(!f)return e==null?null:this;if(c.isFunction(e))return this.each(function(h){var k=c(this);k[d](e.call(this,h,k[d]()))});return c.isWindow(f)?f.document.compatMode==="CSS1Compat"&&f.document.documentElement["client"+b]||f.document.body["client"+b]:f.nodeType===9?Math.max(f.documentElement["client"+
 b],f.body["scroll"+b],f.documentElement["scroll"+b],f.body["offset"+b],f.documentElement["offset"+b]):e===A?parseFloat(c.css(f,d)):this.css(d,typeof e==="string"?e:e+"px")}})})(window);
+
 
 }() )
