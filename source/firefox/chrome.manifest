@@ -1,0 +1,6 @@
+content   github-cross-link                 chrome/content/
+skin      github-cross-link   classic/1.0   chrome/skin/
+locale    github-cross-link   en-US         chrome/locale/en-US/
+
+
+overlay   chrome://browser/content/browser.xul   chrome://github-cross-link/content/ff-overlay.xul
