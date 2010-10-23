@@ -11,7 +11,7 @@
   "content_scripts": [
       {
         "matches" : ["http://github.com/*","https://github.com/*"],
-        "js": ["jquery.js","crosslink.js"],
+        "js": ["GitHubCrossLink.js","run.js"],
         "run_at": "document_end"
       }
   ],
