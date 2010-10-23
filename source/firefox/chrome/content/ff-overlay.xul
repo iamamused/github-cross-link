@@ -2,6 +2,7 @@
 <?xml-stylesheet href="chrome://github-cross-link/skin/overlay.css" type="text/css"?>
 <!DOCTYPE overlay SYSTEM "chrome://github-cross-link/locale/overlay.dtd">
 <overlay id="github-cross-link-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <script src="GitHubCrossLink.js"/>
   <script src="overlay.js"/>
   <script src="ff-overlay.js"/>
 

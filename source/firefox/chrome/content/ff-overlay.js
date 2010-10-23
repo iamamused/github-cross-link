@@ -1,6 +1,6 @@
 //https://developer.mozilla.org/en/Code_snippets/On_page_load
 
-var githubCrossLink = {
+var firefoxGHCLController = {
   init: function() {
     var appcontent = document.getElementById("appcontent");   // browser
     if(appcontent) {
@@ -14,7 +14,12 @@ var githubCrossLink = {
 
   onPageLoad: function(aEvent) {
     var doc = aEvent.originalTarget; // doc is document that triggered "onload" event
-    alert('loaded');
+    
+    
+    window.GitHubCrossLink.init( {patterns:'/iamamused/github-cross-link/*/test/php-library'} ); 
+
+    
+    
     // do something with the loaded page.
     // doc.location is a Location object (see below for a link).
     // You can use it to make your code executed on certain pages only.
@@ -36,5 +41,5 @@ var githubCrossLink = {
   
 }
 
-window.addEventListener("load", function() { githubCrossLink.init(); }, false);
+window.addEventListener("load", function() { firefoxGHCLController.init(); }, false);
 
