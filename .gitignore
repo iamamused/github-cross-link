@@ -3,3 +3,12 @@
 *.pem
 *.safariextz
 
+source/chrome/GitHubCrossLink.js
+source/chrome/Icon-32.png
+source/chrome/Icon-48.png
+source/chrome/Icon-64.png
+source/safari.safariextension/GitHubCrossLink.js
+source/safari.safariextension/Icon-32.png
+source/safari.safariextension/Icon-48.png
+source/safari.safariextension/Icon-64.png
+
