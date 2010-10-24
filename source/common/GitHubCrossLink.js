@@ -7,6 +7,7 @@ if (window.GitHubCrossLink) return;
 window.GitHubCrossLink = {
 
     settings        : {},
+    target          : null,
     url             : '',
     base            : '',
     user            : '',
@@ -30,11 +31,15 @@ window.GitHubCrossLink = {
         return str.replace(new RegExp("[" + chars + "]+$", "g"), "");
     },
 
-    init: function( settings ) {
+    init: function( settings, doc, win ) {
     
-        this.settings = settings;
+    	this.target = doc || document;
+    	// @todo in ff win is actually doc.
+    	var win = win || window; 
+    	
+    	this.settings = settings;
         
-        this.url            = window.location.href.split('/');
+        this.url            = win.location.href.split('/');
         this.base           = this.url[0] 
                               + '/' 
                               + this.url[1] 
@@ -49,21 +54,33 @@ window.GitHubCrossLink = {
         
         
         this.extension      = this.extensionParts[this.extensionParts.length -1];
-
-        console.log(this.extension);
-
         
-        if($('.data.type-php').length > 0) {
+        if($('.data.type-php', this.target).length > 0) {
             this.initPHP();
         }
         
-        if($('.data.type-java').length > 0) {
+        if($('.data.type-java', this.target).length > 0) {
             this.initJAVA();
         }
     },
     
+    initJAVA: function() {
+    
+    },
+    
     initPHP: function() {
 
+		// Link PHP source to documentation.
+		$('.highlight .nb, .highlight .k', this.target).wrapInner(function(){
+
+			var node = $(this);
+			return '<a href="http://php.net/' + node.text() + '"'
+			    + ' title="View ' + node.text() + ' docs on PHP.net"'			    
+			    + ' style="color:inherit"'
+			    + ' />';
+		});
+		
+		// Link the patterns.
         var patterns = this.settings.patterns.split(',');
     
         var found = false, pattern, parts;
@@ -76,24 +93,21 @@ window.GitHubCrossLink = {
             }
         }
 
-        if (!found) return;
+        if (found) {
         
-        var libraryBase = this.base 
-                          + '/' 
-                          + pattern.replace( '*', this.type + '/' + this.version ) 
-                          + '/';
-                          
-        var classes = jQuery('.highlight .nx').each(function(i,e){
-            var node = $(e);
-            node.wrapInner(function() {
-                return $('<a/>').attr({
-                    href : libraryBase + node.text().replace(/_/ig,'/') + '.' + GitHubCrossLink.extension,
-                    title : 'View source in ' + this.project
-                }).css({
-                    color: 'inherit'
-                });
-            });
-        });
+	        var libraryBase = this.base 
+	                          + '/' 
+	                          + pattern.replace( '*', this.type + '/' + this.version ) 
+	                          + '/';
+	                                  
+	        $('.highlight .nx', this.target).wrapInner(function(){
+				var node = $(this);
+				return '<a href="' + libraryBase + node.text().replace(/_/ig,'/') + '.' + GitHubCrossLink.extension + '"'
+				    + ' title="View source in ' + GitHubCrossLink.project + '"'			    
+				    + ' style="color:inherit"'
+				    + ' />';    
+        	});
+       	}
     }
     
 };
