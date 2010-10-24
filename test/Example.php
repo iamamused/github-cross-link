@@ -17,7 +17,7 @@ class Example extends Example_Class_Name {
     }
 
     function phpDocExamples() {
-        // Various parts should like to PHP documentation.
+        // Various parts should link to PHP documentation.
         for ( $i=0; $i<count($test); $i++) {
             echo $i;
             $test = aFunction();
