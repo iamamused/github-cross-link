@@ -15,5 +15,14 @@ class Example extends Example_Class_Name {
     
         return;
     }
+
+    function phpDocExamples() {
+        // Various parts should like to PHP documentation.
+        for ( $i=0; $i<count($test); $i++) {
+            echo $i;
+            $test = aFunction();
+            $test = glob();
+        }
+    }
     
 }
