@@ -1,0 +1,8 @@
+<!ENTITY github-cross-link.label "GitHub Cross-link">
+<!ENTITY github-cross-linkContext.label "GitHub Cross-link Menu Item">
+<!ENTITY github-cross-linkContext.accesskey "G">
+<!ENTITY github-cross-linkToolbarButton.label "GitHub Cross-link Toolbar Button">
+<!ENTITY github-cross-linkToolbarButton.tooltip "This is your toolbar button!">
+<!ENTITY github-cross-linkSidebar.label "GitHub Cross-link Sidebar">
+<!ENTITY github-cross-linkToolbar.name  "example">
+<!ENTITY github-cross-linkToolbar.label "This is an example toolbar. You can hide it under View &gt; toolbars &gt; &github-cross-linkToolbar.name;">
