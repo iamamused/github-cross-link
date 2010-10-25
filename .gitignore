@@ -2,6 +2,7 @@
 *.crx
 *.pem
 *.safariextz
+*.xpi
 
 source/chrome/GitHubCrossLink.js
 source/chrome/Icon*

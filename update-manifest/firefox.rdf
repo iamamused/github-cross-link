@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<RDF:RDF xmlns:em="http://www.mozilla.org/2004/em-rdf#"
+         xmlns:NC="http://home.netscape.com/NC-rdf#"
+         xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <RDF:Description RDF:about="rdf:#$kiha21"
+                   em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   em:minVersion="3.0"
+                   em:maxVersion="4.*"
+                   em:updateLink="http://github.com/downloads/iamamused/github-cross-link/github-cross-link.xpi"
+                   em:updateHash="sha1:930e187ceb82ee43dd94d1e012507e90139d1aee" />
+  <RDF:Seq RDF:about="rdf:#$giha21">
+    <RDF:li RDF:resource="rdf:#$hiha21"/>
+  </RDF:Seq>
+  <RDF:Description RDF:about="urn:mozilla:extension:github-cross-link@tropicalpixels.com"
+                   em:signature="MIGTMA0GCSqGSIb3DQEBDQUAA4GBAGL7v0m9Z9DXfV9hsCZgiSSqPK8hhyHljzL1vlS9NfP8DKV0qgaqv1jr0jVR0LTmuAmBssCXLYo0KHvjI68ABajkBeE+Z6oYW/LitUo3bNuJVl+uC3xboKPiM0iwJYBXdlYuQb+2T62Saakq6IGcrWF9exxiCuQEVYg/1q1EH5Md">
+    <em:updates RDF:resource="rdf:#$giha21"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="rdf:#$hiha21"
+                   em:version="1.1">
+    <em:targetApplication RDF:resource="rdf:#$kiha21"/>
+  </RDF:Description>
+</RDF:RDF>

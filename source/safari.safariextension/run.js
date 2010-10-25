@@ -6,7 +6,7 @@
   safari.self.addEventListener( "message", function( e ) {
     if( e.name === "setSettings" ) {
       var settings = e.message;
-      if (!settings.patterns || settigns.patterns.length == 0) {
+      if (!settings.patterns || settings.patterns.length == 0) {
         settings.patterns = '/iamamused/github-cross-link/*/test/php-library';
       }
       window.GitHubCrossLink.init( settings );

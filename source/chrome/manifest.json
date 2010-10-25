@@ -1,7 +1,6 @@
-
 {
   "name": "GitHub Cross-link",
-  "version": "1.0",
+  "version": "1.1",
   "description": "Cross-links source pages in github.com to allow you to click through to various classes.",
   "background_page": "global.html",
   "permissions": [
@@ -17,6 +16,5 @@
   ],
    "options_page": "options.html",
    "icons": { "48": "Icon-48.png" },
-   "update_url": "http://github.com/iamamused/github-cross-link/raw/master/github-cross-link.chromeextension/updates.xml"
+   "update_url": "http://github.com/iamamused/github-cross-link/raw/master/update-manifest/chrome.xml"
 }
-
